@@ -1,0 +1,31 @@
+Here's the code for the agent process.
+
+ 1   do forever {
+ 2     P( lock );
+ 3     randNum = rand( 1, 3 ); // Pick a random number from 1-3
+ 4     if ( randNum == 1 ) {
+ 5        // Put tobacco on table
+ 6        // Put paper on table
+ 7        V( smoker_match );  // Wake up smoker with match
+ 8      } else if ( randNum == 2 ) {
+ 9        // Put tobacco on table
+10        // Put match on table
+11        V( smoker_paper );  // Wake up smoker with paper
+12      } else {
+13        // Put match on table
+14        // Put paper on table
+15        V( smoker_tobacco ); } // Wake up smoker with tobacco
+16      V( lock );
+17      P( agent );  //  Agent sleeps
+18     }  // end forever loop
+I will give code to one of the smokers. The others are analogous.
+
+ 1   do forever {
+ 2      P( smoker_tobacco );  // Sleep right away
+ 3      P( lock );
+ 4      // Pick up match
+ 5      // Pick up paper
+ 6      V( agent );
+ 7      V( lock );
+ 8      // Smoke (but don't inhale).
+ 9   }
