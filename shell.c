@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #define BUFFER_SIZE 1<<16
 #define ARR_SIZE 1<<16
-
+#define RT 20
 void parse_args(char *buffer, char** args, 
                 size_t args_size, size_t *nargs)
 {
