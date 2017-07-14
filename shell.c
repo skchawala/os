@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 #include <errno.h>
 #include <sys/types.h>
 #define BUFFER_SIZE 1<<16
-#define ARR_SIZE 1<<16
+
+
 
 void parse_args(char *buffer, char** args, 
                 size_t args_size, size_t *nargs)
@@ -14,12 +14,12 @@ void parse_args(char *buffer, char** args,
     char **cp;
     char *wbuf;
     size_t i, j;
-    
+    size_ t a,b;
 
     //hello friends
     wbuf=buffer;
-    buf_args[0]=buffer; 
-    args[0] =buffer;
+    buf_args[0]=buffer2; 
+    args[0] =buffer2;
     
     for(cp=buf_args; (*cp=strsep(&wbuf, " \n\t")) != NULL ;){
         if ((*cp != '\0') && (++cp >= &buf_args[args_size]))
